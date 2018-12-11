@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lulu.todayinhistory.mvp.view.activity.DetialMessageActivity">
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ff0099cc">
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/back" />
+
+            <TextView
+                android:id="@+id/txt_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/img_back"
+                android:gravity="center"
+                android:text="历史详情"
+                android:textColor="#FFFFFFFF"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detial_title"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="#000000"/>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_detial"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                fresco:placeholderImage="@mipmap/ic_launcher" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/txt_detial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:textSize="16sp"/>
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></WebView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lulu.todayinhistory.mvp.view.activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/id_drawer_layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ff0099cc"
+            android:fitsSystemWindows="true"
+            android:gravity="center_vertical"
+            android:minHeight="?android:actionBarSize"
+            android:titleTextColor="#FFFFFFFF"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="历史上的今天" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:background="@mipmap/background_04">
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="300dp"
+                android:layout_centerInParent="true"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:divider="#00000000"
+                android:dividerHeight="10dp" />
+            <!--右上-->
+            <com.lulu.todayinhistory.customview.SatelliteMenu
+                android:id="@+id/mSatelliteMenuRightTop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:menu_image_width="45dp"
+                app:menu_item_image_width="35dp"
+                app:menu_postion="right_bottom"
+                app:radius="130dp" >
+            </com.lulu.todayinhistory.customview.SatelliteMenu>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/draw_menu_layout" />
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lulu.todayinhistory.mvp.view.activity.NoteActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#0099cc"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_title"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/img_title"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="我的笔记"
+                android:textColor="#FFFFFFFF"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/btn_menu"
+            android:layout_width="22dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/menu" />
+    </RelativeLayout>
+
+    <com.lulu.todayinhistory.customview.MyTextEditext
+        android:id="@+id/mytxt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:lineSpacingExtra="10dp"
+        android:lineSpacingMultiplier="1.5"
+        android:textSize="20sp" />
+</LinearLayout>
