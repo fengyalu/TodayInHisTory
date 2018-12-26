@@ -18,8 +18,6 @@ import com.google.gson.Gson;
 import com.lulu.todayinhistory.R;
 import com.lulu.todayinhistory.bean.localdata.TNotes;
 import com.lulu.todayinhistory.customview.MyTextEditext;
-import com.lulu.todayinhistory.customview.SatelliteMenu;
-import com.lulu.todayinhistory.utils.dialog.MyDialog;
 import com.lulu.todayinhistory.utils.localdata.LocalDataDBManager;
 
 import java.lang.reflect.Field;
@@ -32,7 +30,6 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
 
     private MyTextEditext editext;
     private ImageView btnMenu;
-    private String time;
     private PopupMenu pop;
     private RelativeLayout rlTitle;
 
@@ -85,6 +82,14 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
         return time;
     }
 
+    private String titleTime() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date curDate = new Date(System.currentTimeMillis());
+        //获取当前时间     
+        String time = formatter.format(curDate);
+        return time;
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,11 +103,12 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
             String content = editext.getText().toString();
             if (!TextUtils.isEmpty(content)) {
                 //保存
-                time = dataTime();
+                String dataTime = dataTime();
+                String titleTime = titleTime();
                 TNotes tNotes = new TNotes();
-                tNotes.setTitle(time);
+                tNotes.setTitle(titleTime);
                 tNotes.setContent(content);
-                tNotes.setDataTime(time);
+                tNotes.setDataTime(dataTime);
                 LocalDataDBManager.getInstance(this).saveNotes(tNotes);
             }
         }
@@ -116,10 +122,14 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
                 //保存
                 String content = editext.getText().toString();
                 if (!TextUtils.isEmpty(content)) {
+                    //保存
+                    //保存
+                    String dataTime = dataTime();
+                    String titleTime = titleTime();
                     TNotes tNotes = new TNotes();
-                    tNotes.setTitle(time);
+                    tNotes.setTitle(titleTime);
                     tNotes.setContent(content);
-                    tNotes.setDataTime(time);
+                    tNotes.setDataTime(dataTime);
                     boolean isSave = LocalDataDBManager.getInstance(NoteActivity.this).saveNotes(tNotes);
                     if (isSave) {
                         Toast.makeText(NoteActivity.this, "保存成功！", Toast.LENGTH_SHORT).show();

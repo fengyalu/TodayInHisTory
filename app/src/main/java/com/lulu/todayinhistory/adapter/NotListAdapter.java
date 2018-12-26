@@ -166,7 +166,7 @@ public class NotListAdapter extends BaseAdapter implements View.OnClickListener 
         // 设置背景颜色,设置填充内容.
         holder.dataTime.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
         holder.content.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
-        holder.dataTime.setText(list.get(position).getTitle());
+        holder.dataTime.setText(list.get(position).getDataTime());
         holder.content.setText(list.get(position).getContent());
 
         // 设置监听事件

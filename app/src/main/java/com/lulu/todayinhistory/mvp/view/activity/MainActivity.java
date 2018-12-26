@@ -182,13 +182,32 @@ public class MainActivity extends BaseActivity<TitleMessagePresenter> implements
                                 if (isSave) {
                                     Toast.makeText(MainActivity.this, "取消成功", Toast.LENGTH_SHORT).show();
                                 }
-                                drawListAdapter.setList(LocalDataDBManager.getInstance(MainActivity.this).queryAllCollectMsg());
+                                List<TCollectMsg> newCollectMsgList = LocalDataDBManager.getInstance(MainActivity.this).queryAllCollectMsg();
+                                drawListAdapter.setList(newCollectMsgList);
                                 listView.setAdapter(drawListAdapter);
                                 myDialog.dismiss();
                             }
                         });
 
                 return false;
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                List<TCollectMsg> itemCollectMsgList = LocalDataDBManager.getInstance(MainActivity.this).queryAllCollectMsg();
+                if (null!=itemCollectMsgList&&!itemCollectMsgList.isEmpty()) {
+                    try {
+                        Intent intent = new Intent(MainActivity.this, DetialMessageActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("titleid", itemCollectMsgList.get(position).getTitleid());
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
     }

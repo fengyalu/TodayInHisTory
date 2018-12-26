@@ -23,7 +23,7 @@ public class TitleMessagePresenter extends TitleMessageContract.Presenter {
     @Override
     public void titleMessage() {
         Subscription subscription= null;
-        String str1 = "12-3",str2 = "a6f23f119ae097bc8a039e09fb8702e4";
+        String str1 = "",str2 = "a6f23f119ae097bc8a039e09fb8702e4";
         try {
             subscription = model.titleMessage(str1,str2)
                     .subscribe(new Subscriber<TitleMessageInfo>() {
